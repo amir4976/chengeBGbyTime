@@ -19,14 +19,18 @@ def get_time_of_day():
     else:
         return "night"
 
-# Function to update the label displaying the time of day
+# Function to update the label displaying the time of day and set wallpaper
 def update_wallpaper_label(label):
     # Get the current time of day
     time_of_day = get_time_of_day()
     # Update the label text and color based on whether it's day or night
     label.config(text=time_of_day.capitalize(), foreground="blue" if time_of_day == "day" else "black")
-    # Schedule the function to run again after 1 second
-    label.after(1000, lambda: update_wallpaper_label(label))
+    # Get the path to the corresponding wallpaper image based on time of day
+    wallpaper_path = os.path.join(os.getcwd(), f"{time_of_day}.png")
+    # Set the wallpaper
+    set_wallpaper(wallpaper_path)
+    # Schedule the function to run again after 1 minute (60000 milliseconds)
+    label.after(60000, lambda: update_wallpaper_label(label))
 
 def main():
     # Create the main application window
@@ -43,7 +47,7 @@ def main():
     label = ttk.Label(frame, text="", font=("Helvetica", 20, "bold"))
     label.grid(row=0, column=0, columnspan=2, padx=10, pady=5)
 
-    # Update the label to show the current time of day
+    # Update the label to show the current time of day and set wallpaper
     update_wallpaper_label(label)
 
     # Create a label for version information
