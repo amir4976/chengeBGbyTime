@@ -17,9 +17,11 @@ Wallpaper Changer is a simple Python application that changes your desktop wallp
 
 1. Clone the repository or download the source code.
 2. Ensure you have Python installed on your system.
-3. Run the `wallpaper_changer.py` script using Python.
-4. The application will display a window showing whether it's currently day or night.
-5. The wallpaper will automatically change between day and night backgrounds based on the time of day.
+3. Add two img inside project folder
+4. add your wallpaper path inside project 
+5. Run the `wallchenge.py` script using Python.
+6. The application will display a window showing whether it's currently day or night.
+7. The wallpaper will automatically change between day and night backgrounds based on the time of day.
 
 ## Customization
 
